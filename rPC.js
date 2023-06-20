@@ -5,32 +5,31 @@ function getComputerChoice(){
     var randChoice = Math.floor((Math.random() * 3));
     return choices[randChoice];
 }
-let userChoice = prompt("Choose Your Weapon: Rock, Paper or Scissor");
-userChoice = userChoice.toLowerCase();
+
 
 let computerChoice = getComputerChoice();
-
+//returns the winner
 function playRound(userChoice, computerChoice){
     
 
     if(computerChoice === "Rock"){
         if(userChoice === "rock")
-            return "It is a draw";
+            return "draw";
         if(userChoice === "paper")
-            return "You Won";
+            return "user";
         if(userChoice === "scissor")
-            return "You Lost";
+            return "computer";
         
 
 
     }
     if(computerChoice === "Paper"){
         if(userChoice === "paper")
-            return "It is a draw";
-        if(userChoice === "Rock")
-            return "You Lost";
+            return "draw";
+        if(userChoice === "rock")
+            return "computer";
         if(userChoice === "scissor")
-            return "You Won!!!";
+            return "user";
 
         
         
@@ -38,14 +37,46 @@ function playRound(userChoice, computerChoice){
     if(computerChoice === "Scissor"){
         
         if(userChoice === "scissor")
-        return "It is a draw";
+        return "draw";
         if(userChoice === "rock")
-        return "You Won!!!";
+        return "user";
         if(userChoice === "paper")
-        return "You Lost";
+        return "computer";
         
     }
 
 }
-console.log(computerChoice);
-console.log(playRound(userChoice, computerChoice));
+
+var userPoint = 0, computerPoint = 0;
+for(let i = 0; i < 5; i++){
+  
+    
+    let userChoice = prompt("Choose Your Weapon: Rock, Paper or Scissor");
+    userChoice = userChoice.toLowerCase();
+    let computerChoice = getComputerChoice();
+    
+    console.log("Computer chose : " + computerChoice);
+    console.log("User Chose : " + userChoice);
+    let winner = playRound(userChoice, computerChoice);
+
+    if(winner === "user"){
+     //   console.log("You Won!!!");
+        userPoint++;
+    }
+    else if(winner === "computer"){
+     //   console.log("You Lost");
+        computerPoint++;
+    }
+    
+    
+
+}
+
+
+if(userPoint > computerPoint)
+    console.log("You Won!!!");
+else if (userPoint < computerPoint)
+    console.log("You Lost")
+else if(userPoint === computerPoint){
+    console.log("It is a Draw");
+}
