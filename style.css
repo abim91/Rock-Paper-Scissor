@@ -1,0 +1,30 @@
+#rock{
+    background: blue;
+  
+}
+#paper{
+    background: green;
+}
+#scissors{
+    background: peru;
+}
+
+.opt{
+   display: flex;
+    flex: 1;
+    justify-content: space-evenly;
+   
+}
+.key{
+    font-size: 20px;;
+    min-width: 180px;
+    min-height: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+body{
+    display: flex;
+    
+}

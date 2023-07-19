@@ -1,5 +1,8 @@
 console.log("hello world");
-
+window.addEventListener("click",function(e){
+    console.log(e);
+    const selection =this.document.querySelector(  );
+});
 function getComputerChoice(){
     const choices = ["Rock", "Paper", "Scissor"];
     var randChoice = Math.floor((Math.random() * 3));
@@ -48,12 +51,12 @@ function playRound(userChoice, computerChoice){
 }
 
 var userPoint = 0, computerPoint = 0;
-for(let i = 0; i < 5; i++){
+//for(let i = 0; i < 5; i++){
   
     
     let userChoice = prompt("Choose Your Weapon: Rock, Paper or Scissor");
     userChoice = userChoice.toLowerCase();
-    let computerChoice = getComputerChoice();
+  //  let computerChoice = getComputerChoice();
     
     console.log("Computer chose : " + computerChoice);
     console.log("User Chose : " + userChoice);
@@ -70,7 +73,7 @@ for(let i = 0; i < 5; i++){
     
     
 
-}
+//}
 
 
 if(userPoint > computerPoint)
