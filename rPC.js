@@ -1,4 +1,4 @@
-console.log("hello world");
+console.log("Pick a option:");
 
 function getComputerChoice(){
     const choices = ["Rock", "Paper", "Scissor"];
@@ -6,10 +6,21 @@ function getComputerChoice(){
     return choices[randChoice];
 }
 
+function getUserChoice(callback){
+    return new Promise(function (resolve){
+    window.addEventListener("click",function(e){
+        //console.log(e);
+        const selected =document.querySelector(`button[id="${e.target.id}"]`);
+       let userSelected = selected.textContent;
+        
+       resolve(userSelected);
+      
+    });
+   
+    });
+}
 
-let computerChoice = getComputerChoice();
-//returns the winner
-function playRound(userChoice, computerChoice){
+function decideWinner(userChoice, computerChoice){
     
 
     if(computerChoice === "Rock"){
@@ -47,17 +58,28 @@ function playRound(userChoice, computerChoice){
 
 }
 
+function outputWinner(){
+    if(userPoint > computerPoint)
+        console.log("You Won!!!");
+    else if (userPoint < computerPoint)
+        console.log("You Lost")
+    else if(userPoint === computerPoint){
+        console.log("It is a Draw");
+    }
+    }
+
 var userPoint = 0, computerPoint = 0;
-//for(let i = 0; i < 5; i++){
-  
-    
-    let userChoice = prompt("Choose Your Weapon: Rock, Paper or Scissor");
-    userChoice = userChoice.toLowerCase();
-  //  let computerChoice = getComputerChoice();
+function playGame(userChoice){
+//var userPoint = 0, computerPoint = 0;
+
+
+    if(userChoice)
+        userChoice = userChoice.toLowerCase();
+    let computerChoice = getComputerChoice();
     
     console.log("Computer chose : " + computerChoice);
     console.log("User Chose : " + userChoice);
-    let winner = playRound(userChoice, computerChoice);
+    let winner = decideWinner(userChoice, computerChoice);
 
     if(winner === "user"){
      //   console.log("You Won!!!");
@@ -70,19 +92,19 @@ var userPoint = 0, computerPoint = 0;
     
     
 
-//}
+}
+
+async function runMultipleTimes(){
+    for(let i = 0; i < 5; i++){
+        const userSelected = await getUserChoice();
+        playGame(userSelected);
+    }
+    outputWinner();
+
+}
+runMultipleTimes();
 
 
-if(userPoint > computerPoint)
-    console.log("You Won!!!");
-else if (userPoint < computerPoint)
-    console.log("You Lost")
-else if(userPoint === computerPoint){
-    console.log("It is a Draw");
-}
-window.addEventListener("click",function(e){
-    console.log(e);
-   const selectd =document.querySelector(`button[id="${e.target.id}"]`);
-    console.log(selectd);
-}
-);
+
+
+
