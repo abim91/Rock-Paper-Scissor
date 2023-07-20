@@ -1,8 +1,5 @@
 console.log("hello world");
-window.addEventListener("click",function(e){
-    console.log(e);
-    const selection =this.document.querySelector(  );
-});
+
 function getComputerChoice(){
     const choices = ["Rock", "Paper", "Scissor"];
     var randChoice = Math.floor((Math.random() * 3));
@@ -83,3 +80,9 @@ else if (userPoint < computerPoint)
 else if(userPoint === computerPoint){
     console.log("It is a Draw");
 }
+window.addEventListener("click",function(e){
+    console.log(e);
+   const selectd =document.querySelector(`button[id="${e.target.id}"]`);
+    console.log(selectd);
+}
+);
