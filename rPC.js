@@ -77,6 +77,7 @@ function outputWinner(){
     }
 
 var userPoint = 0, computerPoint = 0;
+var highestPoint = 0;
 function playGame(userChoice){
     if(userChoice)
         userChoice = userChoice.toLowerCase();
@@ -99,21 +100,24 @@ function playGame(userChoice){
     let winner = decideWinner(userChoice, computerChoice);
 
     if(winner === "user"){
-     //   console.log("You Won!!!");
+    
         userPoint++;
         divUserScore.innerHTML = userPoint;
     }
     else if(winner === "computer"){
-     //   console.log("You Lost");
+   
         computerPoint++;
         divCompScore.innerHTML = computerPoint;
     }
     
-    
+    if(userPoint > computerPoint) highestPoint = userPoint;
+    else highestPoint = computerChoice;
+
+    //runMultipleTimes(highestPoint);
 
 }
 
-async function runMultipleTimes(){
+async function runMultipleTimes(point){
     for(let i = 0; i < 5; i++){
         const userSelected = await getUserChoice();
         playGame(userSelected);
