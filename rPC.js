@@ -1,17 +1,17 @@
 console.log("Pick a option:");
-
+//returns a random choice
 function getComputerChoice(){
     const choices = ["Rock", "Paper", "Scissor"];
     var randChoice = Math.floor((Math.random() * 3));
     return choices[randChoice];
 }
 
-function getUserChoice(callback){
+function getUserChoice(){
     return new Promise(function (resolve){
     window.addEventListener("click",function(e){
         //console.log(e);
         const selected =document.querySelector(`button[id="${e.target.id}"]`);
-       let userSelected = selected.textContent;
+       let userSelected = selected.innerHTML;
         
        resolve(userSelected);
       
@@ -19,7 +19,7 @@ function getUserChoice(callback){
    
     });
 }
-
+//decides who wins the current round and returns the winner
 function decideWinner(userChoice, computerChoice){
     
 
@@ -58,36 +58,55 @@ function decideWinner(userChoice, computerChoice){
 
 }
 
+//used to output the winner of the current round;
 function outputWinner(){
-    if(userPoint > computerPoint)
+    const divWinner = document.querySelector("#winner-display");
+
+    if(userPoint > computerPoint){
+        divWinner.innerHTML = "You won!!!";
         console.log("You Won!!!");
-    else if (userPoint < computerPoint)
+    }
+    else if (userPoint < computerPoint){ 
         console.log("You Lost")
+        divWinner.innerHTML = "You Lost, loser";   
+
+    }
     else if(userPoint === computerPoint){
-        console.log("It is a Draw");
+        divWinner.innerHTML = "It is a Draw";  
     }
     }
 
 var userPoint = 0, computerPoint = 0;
 function playGame(userChoice){
-//var userPoint = 0, computerPoint = 0;
-
-
     if(userChoice)
         userChoice = userChoice.toLowerCase();
     let computerChoice = getComputerChoice();
     
+    const divUser = document.querySelector("#userDecision");
+    divUser.innerHTML = userChoice;
+
+    const divComp = document.querySelector("#computerDecision");
+    divComp.innerHTML = computerChoice;
+
+    const divUserScore = document.querySelector("#user-points");
+
+    const divCompScore = document.querySelector("#computer-points");
+    divComp.innerHTML = computerChoice;
+    
     console.log("Computer chose : " + computerChoice);
     console.log("User Chose : " + userChoice);
+
     let winner = decideWinner(userChoice, computerChoice);
 
     if(winner === "user"){
      //   console.log("You Won!!!");
         userPoint++;
+        divUserScore.innerHTML = userPoint;
     }
     else if(winner === "computer"){
      //   console.log("You Lost");
         computerPoint++;
+        divCompScore.innerHTML = computerPoint;
     }
     
     
@@ -104,6 +123,7 @@ async function runMultipleTimes(){
 }
 runMultipleTimes();
 
+//decision board
 
 
 
