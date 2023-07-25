@@ -126,7 +126,7 @@ function playGame(userChoice){
    
         computerPoint++;
         divCompScore.innerHTML = computerPoint;
-    }
+    } //comment
     
    
 
