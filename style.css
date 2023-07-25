@@ -2,6 +2,10 @@ body{
     display: block;
 }
 /*Creating choice board*/
+h1{
+    display: flex;
+    justify-content: center;
+}
 #rockBtn{
     background:#A5B4FC;
   
@@ -20,11 +24,12 @@ body{
  }
  .key{
      font-size: 20px;;
-     min-width: 180px;
-     min-height: 180px;
+     min-width: 120px;
+     min-height: 120px;
      display: flex;
      justify-content: center;
      align-items: center;
+     border-style: none;
      
  }
 
@@ -37,14 +42,16 @@ body{
 
 #userDecision{
     background: #5F9EA0;
-    min-width: 180px;
-    min-height: 180px;
+    min-width: 120px;
+    min-height: 120px;
+    border-style: none;
 }
 
 #computerDecision{
     background: #FFD700;
-    min-width: 180px;
-    min-height: 180px;
+    min-width: 120px;
+    min-height: 120px;
+    border-style: none;
 }
 
 .gameResult{

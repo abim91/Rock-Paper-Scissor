@@ -1,5 +1,17 @@
-console.log("Pick a option:");
+
+
 //returns a random choice
+function emojiTranslate(chosen){
+    var emojiVersion = null;
+    if(chosen.toLowerCase === "rock")
+        emojiVersion = "🪨";
+    else if(chosen.toLowerCase === "paper")
+        emojiVersion = "📜"; 
+    else if(chosen.toLowerCase === "Scissor")     
+        emojiVersion = "✂️";  
+    
+        return emojiVersion;
+}
 function getComputerChoice(){
     const choices = ["Rock", "Paper", "Scissor"];
     var randChoice = Math.floor((Math.random() * 3));
@@ -78,11 +90,15 @@ function outputWinner(){
 
 var userPoint = 0, computerPoint = 0;
 var highestPoint = 0;
+var emojiUserV = "null", emojiCompV = "null";
 
 function playGame(userChoice){
     if(userChoice)
         userChoice = userChoice.toLowerCase();
     let computerChoice = getComputerChoice();
+
+    console.log(emojiTranslate(userChoice));
+    console.log(emojiTranslate(computerChoice));
     
     const divUser = document.querySelector("#userDecision");
     divUser.innerHTML = userChoice;
@@ -95,8 +111,9 @@ function playGame(userChoice){
     const divCompScore = document.querySelector("#computer-points");
     divComp.innerHTML = computerChoice;
     
-    console.log("Computer chose : " + computerChoice);
-    console.log("User Chose : " + userChoice);
+   
+
+ 
 
     let winner = decideWinner(userChoice, computerChoice);
 
@@ -111,10 +128,7 @@ function playGame(userChoice){
         divCompScore.innerHTML = computerPoint;
     }
     
-    //if(userPoint > computerPoint) highestPoint = userPoint;
-    //else highestPoint = computerChoice;
-
-    //runMultipleTimes(highestPoint);
+   
 
 }
 
