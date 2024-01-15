@@ -21,7 +21,7 @@ function getComputerChoice(){
 function getUserChoice(){
     return new Promise(function (resolve){
     window.addEventListener("click",function(e){
-        //console.log(e);
+        console.log(e);
         const selected =document.querySelector(`button[id="${e.target.id}"]`);
        let userSelected = selected.innerHTML;
         

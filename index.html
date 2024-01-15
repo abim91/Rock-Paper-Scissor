@@ -9,36 +9,37 @@
  
 </head>
 <body>
-  <h1> Match Against A Robot </h1>
+  <header>
+    <h1> Rock-Paper-Scissor Battle</h1>
+  </header>
+
  
-  <div class = "opt">
-    <button id = "rockBtn" class="key">Rock</button>
   
-    
- 
-    <button id = "paperBtn" class="key">Paper</button>
- 
- 
-    <button id = "scissorsBtn" class="key">Scissor</button>
-  </div>
 
   <div class = "decisionBoard">
-    <button id = "userDecision">You Chose:</button>
-    <button id = "computerDecision">Computer Chose:</button>
+    <div id = "user-data">
+      <div id = "user-points"></div>
+      <button id = "userDecision" class = "circle">Choose A Weapon</button>
+    </div>
+    <div id="computer-data">
+    <button id = "computerDecision" class = "circle">Waiting For Your Move </button>
+    <div id = "computer-points"></div>
+  </div>
   </div>
 
-  
-    <div id = "points-display">
+  <ul class = "options">
+    <li><button id = "rockBtn" class="circle">Rock</button></li>
+    <li><button id = "paperBtn" class="circle">Paper</button></li>
+    <li><button id = "scissorsBtn" class="circle">Scissor</button></li>
+    </ul>
+ 
+   <!-- <div id = "points-display">
         <div id = "user-points"></div>
         <div id = "computer-points"></div>
-    </div>
+    </div>-->
     <div class = "gameResult">
       <div id = "winner-display"></div>
-
-      </div>
-
-
-  </div>
+    </div>
 
   </div>
   <script src = "rPC.js"> </script>
